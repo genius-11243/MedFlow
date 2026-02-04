@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Medical Blue Theme - Light and Clean */
+  --font-tajawal: 'Tajawal', sans-serif;
+  
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+
+  --primary: 201 96% 32%; /* Deep Medical Blue */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 199 89% 48%; /* Lighter Blue Accent */
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 210 40% 93%;
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 199 89% 95%; /* Very Light Blue for backgrounds */
+  --accent-foreground: 201 96% 32%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 201 96% 32%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 220 20% 14%;
+  --foreground: 210 20% 95%;
+
+  --primary: 199 85% 55%;
+  --primary-foreground: 220 20% 10%;
+
+  --secondary: 220 18% 22%;
+  --secondary-foreground: 210 20% 95%;
+
+  --muted: 220 18% 20%;
+  --muted-foreground: 215 15% 60%;
+
+  --accent: 220 18% 25%;
+  --accent-foreground: 210 20% 95%;
+
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 210 20% 98%;
+
+  --border: 220 15% 28%;
+  --input: 220 18% 22%;
+  --ring: 199 85% 55%;
+
+  --card: 220 18% 18%;
+  --card-foreground: 210 20% 95%;
+
+  --popover: 220 18% 18%;
+  --popover-foreground: 210 20% 95%;
+}
+
+/* RTL Support */
+html {
+  direction: rtl;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/20;
+    font-family: var(--font-tajawal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-tajawal);
+    @apply font-bold tracking-tight text-primary;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 active:scale-95 transition-all duration-200 rounded-xl font-bold;
+  }
+}
+
+/* Custom Scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/40;
+}
